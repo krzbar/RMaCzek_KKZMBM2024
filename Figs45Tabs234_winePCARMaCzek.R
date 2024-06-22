@@ -56,11 +56,11 @@ for (i in 1:nrow(wine)) {
   true = c(true, temp)
 }
 
-res_fuzzy_fig4 = czek_matrix(data, order = 'GW_ward', cluster = TRUE, cluster_type = "fuzzy", num_cluster = 3, min.size = 2, eps = c(0.02,0.05), pts = c(1,5))
-cluster_res = attr(res_exact, "cluster_res")
+res_exact_fig4 = czek_matrix(data, order = 'GW_ward', cluster = TRUE, cluster_type = "exact", num_cluster = 3, min.size = 2, eps = NULL, pts = NULL)
+cluster_res = attr(res_exact_fig4, "cluster_res")
 acc_res = acc(true, num_cluster, cluster_res)
 
-sink(paste0("wine_GW_ward_fuzzy_fig4_accuracy.txt"))
+sink(paste0("wine_GW_ward_exact_fig4_accuracy.txt"))
 print(acc_res$acc_res)
 sink()
 
@@ -133,9 +133,8 @@ l_Fig5params<-list(
     list(c_suffix="04",c_clustertype="fuzzy",eps=c(0.01,0.02),pts=c(1,5)),
     list(c_suffix="05",c_clustertype="fuzzy",eps=c(0.01,0.05),pts=c(1,5)),
     list(c_suffix="06",c_clustertype="fuzzy",eps=c(0.01,0.05),pts=c(5,15)),
-    list(c_suffix="07",c_clustertype="fuzzy",eps=c(0.01,0.01),pts=c(1,15)),
-    list(c_suffix="08",c_clustertype="fuzzy",eps=c(0.02,0.05),pts=c(1,5)),
-    list(c_suffix="X",c_clustertype="fuzzy",eps=c(0.01,0.05),pts=c(1,10))
+    list(c_suffix="07",c_clustertype="fuzzy",eps=c(0.01,0.1),pts=c(1,15)),
+    list(c_suffix="08",c_clustertype="fuzzy",eps=c(0.02,0.05),pts=c(1,5))
 )
 
 sapply(l_Fig5params,function(x,data,num_cluster){
