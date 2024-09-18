@@ -84,8 +84,8 @@ p1 <- autoplot(wine.pca, data = wine, colour = 'class', shape = 'class',
   theme(axis.title = element_text(size = 18),
         axis.text = element_text(size = 18),
         legend.position = "none") +
-  scale_fill_manual(values=c("red","blue","green")) +
-  scale_color_manual(values=c("red","blue","green")) 
+  scale_fill_manual(values=c("green","red","blue")) +
+  scale_color_manual(values=c("green","red","blue")) 
   
   
 png("Wine_Dataset_true_class.png")
@@ -98,8 +98,8 @@ p2 <- autoplot(wine.pca, data = wine, colour = 'prediction', shape = 'prediction
   theme(axis.title = element_text(size = 18),
         axis.text = element_text(size = 18),
         legend.position = "none") +
-  scale_fill_manual(values=c("red","blue","green")) +
-  scale_color_manual(values=c("red","blue","green")) 
+  scale_fill_manual(values=c("green","red","blue")) +
+  scale_color_manual(values=c("green","red","blue")) 
 png("Wine_Dataset_predicted_class.png")
 print(p2)
 dev.off()

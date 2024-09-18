@@ -19,9 +19,9 @@ library(RMaCzek)
 
 
 modellda<-MASS::lda(Type~.,data=wine) #Type: cultivar, i.e., kind of plant, of wine
-vcol<-rep("blue",nrow(wine))
-vcol[which(wine$Type=="Barolo")]<-"green"
-vcol[which(wine$Type=="Barbera")]<-"red"
+vcol<-rep("red",nrow(wine))
+vcol[which(wine$Type=="Barolo")]<-"blue"
+vcol[which(wine$Type=="Barbera")]<-"green"
 png("Wine2DLDA.png");plot(modellda,col=vcol);dev.off()
 
 
